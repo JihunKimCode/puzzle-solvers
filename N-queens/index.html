@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>N-Queens Solver</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Add Font Awesome CSS link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <a href="https://github.com/JihunKimCode" class="github-icon" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+    </a>
+    
+    <h1>N-Queens Solver</h1>
+    <label for="size">Enter the size (n) of the board (n*n):</label>
+    <input type="number" id="size" min="4">
+    <button onclick="solveNQueens()">Solve</button>
+    <div id="board" role="grid" aria-live="polite"></div>
+    <script src="script.js"></script>
+    <div class="info">
+        <strong>Q. What is N-queens puzzle?</strong>
+        <p>
+            A. Check this <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle" target="_blank"  rel="noopener noreferrer">Wikipedia Page</a>!
+        </p>
+        <strong>Q. Where can I see the source code?</strong>
+        <p>
+            A. For C++, <a href="https://github.com/JihunKimCode/Simple-CPPs/blob/main/N%20Queen%20Problem%20Solver.cpp" target="_blank"  rel="noopener noreferrer">check this</a>!
+            For this webpage, <a href="https://github.com/JihunKimCode/website/tree/main/N-queens" target="_blank"  rel="noopener noreferrer">check this</a>! 
+        </p>
+        <strong>Q. Why does it sometimes fail or take too long time to find a solution?</strong>
+        <p>
+            A. First, it could be because the board size is too small to find the solution. Try a wider board.
+            <br>Second, it's because the board was designed to use a randomized start column for the top-row queen to show the various possibility of the solution.
+            <br>Try to "Solve" it again. Also, please remember it could take lots of time to solve a too-wide board.
+        </p>
+    </div>
+</body>
+</html>

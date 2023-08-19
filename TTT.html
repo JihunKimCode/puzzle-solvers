@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 36px;
+            border: 1px solid #ccc;
+        }
+        #turn-info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        @media (max-width: 767px) {
+            #board{
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <div id="turn-info">Player A's turn</div>
+    <table id="board">
+        <tr>
+            <td onclick="cellClicked(0, 0)"></td>
+            <td onclick="cellClicked(0, 1)"></td>
+            <td onclick="cellClicked(0, 2)"></td>
+        </tr>
+        <tr>
+            <td onclick="cellClicked(1, 0)"></td>
+            <td onclick="cellClicked(1, 1)"></td>
+            <td onclick="cellClicked(1, 2)"></td>
+        </tr>
+        <tr>
+            <td onclick="cellClicked(2, 0)"></td>
+            <td onclick="cellClicked(2, 1)"></td>
+            <td onclick="cellClicked(2, 2)"></td>
+        </tr>
+    </table>
+    <script>
+        let player = 'A';
+        let turn = 0;
+        let board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        const turnInfo = document.getElementById('turn-info');
+
+        function cellClicked(row, col) {
+            if (board[row][col] !== 0) return;
+
+            board[row][col] = player === 'A' ? 1 : 2;
+            turn++;
+
+            if (player === 'A') {
+                player = 'B';
+            } else {
+                player = 'A';
+            }
+
+            updateBoard();
+            updateTurnInfo();
+            const progress = checkBingo(board, turn);
+
+            if (progress === 0) {
+                setTimeout(() => {
+                    if (player === 'B') {
+                        alert('Player A Wins!');
+                    } else if (player === 'A') {
+                        alert('Player B Wins!');
+                    }
+                    resetBoard();
+                }, 100);
+            } else if (progress === 1) {
+                setTimeout(() => {
+                    alert('Draw!');
+                    resetBoard();
+                }, 100);
+            }
+        }
+
+        function updateBoard() {
+            const table = document.getElementById('board');
+            const cells = table.getElementsByTagName('td');
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    const cellValue = board[i][j] === 1 ? 'O' : (board[i][j] === 2 ? 'X' : '');
+                    cells[i * 3 + j].textContent = cellValue;
+                }
+            }
+        }
+
+        function updateTurnInfo() {
+            turnInfo.textContent = `Player ${player}'s turn`;
+        }
+
+        function checkBingo(board, turn) {
+            if (board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[0][0] !== 0) return 0;
+            if (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[0][2] !== 0) return 0;
+
+            for (let i = 0; i < 3; i++) {
+                if (board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][0] !== 0) return 0;
+                if (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[0][i] !== 0) return 0;
+            }
+
+            if (turn === 9) return 1;
+
+            return 2;
+        }
+
+        function resetBoard() {
+            board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+            player = 'A';
+            turn = 0;
+            updateBoard();
+            updateTurnInfo();
+        }
+
+        updateBoard(); // Initialize the board
+        updateTurnInfo(); // Initialize the turn information
+    </script>
+</body>
+</html>

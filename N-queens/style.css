@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    width: 100%;
+}
+
+h1 {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    cursor: text;
+}
+
+input {
+    width: 40px;
+    height: 25px;
+    font-size: 18px;
+}
+
+button {
+    margin-left: 10px;
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#board {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(var(--size), 40px);
+    margin: 20px auto; /* Center the board horizontally */
+    justify-content: center; /* Center the grid items horizontally within the grid */
+    align-items: center;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.cell[aria-checked="true"] {
+    background-color: #ffcc66;
+}
+
+.info {
+    border: 1px dotted #000000;
+    padding: 20px 20px 5px 20px;
+    margin: auto auto;
+    width: 80%;
+    border-radius: 8px;
+    border-width: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-icon {
+    position: absolute;
+    top: 10px;
+    right: 8%;
+    font-size: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    color: rgb(228, 228, 228);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+
+    background-color: #000000;
+}
+
+.github-icon:hover{
+    color: white;
+}
+
+@media (max-width: 767px) {
+    body{
+        width: 90%;
+    }
+    .github-icon {
+        margin-left: 0px;
+        margin-right: auto;
+        align-items: start;
+        justify-content: start;
+        left: 3%;
+        right: auto;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knight's Tour</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <a href="https://github.com/JihunKimCode" class="github-icon" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+    </a>
+
+    <div class="container">
+        <h1>Knight's Tour</h1>
+        <label for="rows">Rows:</label>
+        <input type="number" id="rows" min="1" value="8">
+        <label for="cols">Columns:</label>
+        <input type="number" id="cols" min="1" value="8">
+        <button onclick="startTour()">Start Tour</button>
+        <button id="animationButton" onclick="toggleAnimation()">Start Animation</button>
+        <div id="board"></div>
+    </div>
+    <div class="info">
+        <strong>Q. What is knight's tour puzzle?</strong>
+        <p>
+            A. Check this <a href="https://en.wikipedia.org/wiki/Knight%27s_tour" target="_blank" rel="noopener noreferrer">Wikipedia Page</a>!
+        </p>
+        <strong>Q. Where can I see the source code?</strong>
+        <p>
+            A. For C++, <a href="https://github.com/JihunKimCode/Simple-CPPs/blob/main/Knight%20Tour%20Solver.cpp" target="_blank"  rel="noopener noreferrer">check this</a>!
+            For this webpage, <a href="https://github.com/JihunKimCode/website/tree/main/Knight-Tour" target="_blank"  rel="noopener noreferrer">check this</a>! 
+        </p>
+        <strong>Q. Why does it sometimes fail or take too long time to find a solution?</strong>
+        <p>A. When a blank board was printed, it meant there was no solution. 
+            <br>It could be because the board size is too small to find the solution. Try a wider board.
+            <br>Also, please remember it could take lots of time to solve a too-wide board.
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
